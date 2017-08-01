@@ -1,0 +1,34 @@
+.btn-primary{
+	color: #fff;
+	background-color: #37a000;
+	padding: 11px 22px;
+	border-color: transparent;
+	height: auto;
+}
+.panel-default{
+	border-width: 2px;
+	border-radius: 0;
+}
+.btn-primary:hover{
+	background-color: #008329;
+}
+.btn-group.choice > button{
+	border-radius: 0;
+	padding: 10px 25px;
+	height: auto;
+	border: 2px solid #e0e0e0;
+}
+.btn-group.choice > button:hover{
+	border-color: #37a000;
+	color: #37a000;
+	background-color: #fff;
+}
+.btn-group.choice > button.active{
+	border-color: #37a000;
+	color: #fff;
+	background-color: #37a000;
+}
+.btn-group.choice button span{
+	text-transform: capitalize;
+	font-weight: 500;
+}

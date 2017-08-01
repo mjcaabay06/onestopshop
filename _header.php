@@ -1,0 +1,119 @@
+<div class="top top-style2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="flat-information">
+                    <li>Mon - Fri: 8.00 - 18:00</li>
+                </ul>
+                <ul class="flat-socials">
+                    <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                    <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                    <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href=""><i class="fa fa-pinterest"></i></a></li>
+                </ul>
+            </div><!-- col-md-8 -->
+            <div class="col-md-4">
+                <div class="wrap-flat">
+                    <ul class="flat-login-register">
+                        <li><a href="sign-in.php">Sign In</a></li>
+                        <li><a href="sign-up.php">Sign Up</a></li>
+                    </ul>
+                </div><!-- wrap-flat -->
+            </div><!-- col-md-4 -->
+        </div><!-- row -->
+    </div><!-- container -->
+</div><!-- top -->
+<header id="header" class="header styleheader header-style2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="logo">
+                    <a href="#"><img src="images/logo.png" alt="image"></a>
+                </div><!-- /logo -->
+                <div class="flat-search">
+                    <ul>
+                        <li><a href=""><i class="lnr lnr-magnifier"></i></a></li>
+                        <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
+                    </ul>
+                </div><!-- /wrap-search -->
+                <div class="wrap-nav">
+                    <nav id="mainnav" class="mainnav">
+                        <ul class="menu">
+                            <li class="active"><a href="index.html" title="">HOME</a>
+                                <ul class="submenu">
+                                    <li><a href="index.html" title="">Home style 01</a></li>
+                                    <li><a href="index2.html" title="">Home style 02</a></li>
+                                    <li><a href="index3.html" title="">Home style 03</a></li>
+                                    <li><a href="index4.html" title="">Home style 04</a></li>
+                                    <li><a href="index5.html" title="">Home style 05</a></li>
+                                    <li><a href="index6.html" title="">Home style 06</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="" title="">COURSES</a>
+                                <ul class="submenu submenu-style2">
+                                    <li class="submenu-level">
+                                       <ul class="submenu2">
+                                            <li class="sub-title"><a href="#">TECHNOLOGY</a></li>
+                                            <li><a href="#">UI/UX</a></li>
+                                            <li><a href="" title="">Design Web</a></li>
+                                            <li><a href="" title="">HTML5/CSS3</a></li>
+                                            <li><a href="#">Development</a></li>
+                                            <li><a href="" title="">Saler</a></li>
+                                            <li><a href="" title="">Finace</a></li>
+                                        </ul> 
+                                    </li>
+                                    <li class="submenu-level">
+                                       <ul class="submenu2">
+                                            <li class="sub-title"><a href="#">DESIGN WEBSITE</a></li>
+                                            <li><a href="#">UI/UX</a></li>
+                                            <li><a href="" title="">Design Web</a></li>
+                                            <li><a href="" title="">HTML5/CSS3</a></li>
+                                            <li><a href="#">Development</a></li>
+                                            <li><a href="" title="">Saler</a></li>
+                                            <li><a href="" title="">Finace</a></li>
+                                        </ul> 
+                                    </li>
+                                    <li class="submenu-level">
+                                       <ul class="submenu2">
+                                            <li class="sub-title"><a href="#">CODE</a></li>
+                                            <li><a href="#">UI/UX</a></li>
+                                            <li><a href="" title="">Design Web</a></li>
+                                            <li><a href="" title="">HTML5/CSS3</a></li>
+                                            <li><a href="#">Development</a></li>
+                                            <li><a href="" title="">Saler</a></li>
+                                            <li><a href="" title="">Finace</a></li>
+                                        </ul> 
+                                    </li>
+                                    <li class="submenu-level">
+                                       <ul class="submenu2">
+                                            <li class="sub-title"><a href="#">GAME</a></li>
+                                            <li><a href="#">UI/UX</a></li>
+                                            <li><a href="" title="">Design Web</a></li>
+                                            <li><a href="" title="">HTML5/CSS3</a></li>
+                                            <li><a href="#">Development</a></li>
+                                            <li><a href="" title="">Saler</a></li>
+                                            <li><a href="" title="">Finace</a></li>
+                                        </ul> 
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="" title="">PAGES</a></li>
+                            <li><a href="" title="">BLOG</a>
+                                <ul class="submenu">
+                                    <li><a href="blog-list01.html">Blog List 01</a></li>
+                                    <li><a href="blog-list02.html">Blog List 02</a></li>
+                                    <li><a href="blog-list03.html">Blog list 03</a></li>
+                                    <li><a href="blog-zigzac01.html">Blog Zigzac 01</a></li>
+                                    <li><a href="blog-zigzac02.html">Blog Zigzac 02</a></li>
+                                    <li><a href="blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="" title="">SHOP</a></li>
+                            <li><a href="" title="">CONTACT</a></li>
+                        </ul>
+                    </nav>
+                </div><!-- /wrap-nav -->
+            </div><!-- /col-md-12 -->
+        </div><!-- /row -->
+    </div><!-- /container -->
+</header><!-- /header -->
