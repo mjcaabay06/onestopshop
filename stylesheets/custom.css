@@ -11,6 +11,7 @@
 }
 .btn-primary:hover{
 	background-color: #008329;
+	border-color: transparent;
 }
 .btn-group.choice > button{
 	border-radius: 0;
