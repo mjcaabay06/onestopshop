@@ -30,13 +30,13 @@
                 <div class="logo">
                     <a href="#"><img src="images/logo.png" alt="image"></a>
                 </div><!-- /logo -->
-                <div class="flat-search">
+                <!-- <div class="flat-search">
                     <ul>
                         <li><a href=""><i class="lnr lnr-magnifier"></i></a></li>
                         <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
                     </ul>
-                </div><!-- /wrap-search -->
-                <div class="wrap-nav">
+                </div> --><!-- /wrap-search -->
+                <div class="wrap-nav pull-left ml-50">
                     <nav id="mainnav" class="mainnav">
                         <ul class="menu">
                             <li class="active"><a href="index.html" title="">HOME</a>
@@ -49,7 +49,7 @@
                                     <li><a href="index6.html" title="">Home style 06</a></li>
                                 </ul>
                             </li>
-                            <li><a href="" title="">COURSES</a>
+                            <!-- <li><a href="" title="">COURSES</a>
                                 <ul class="submenu submenu-style2">
                                     <li class="submenu-level">
                                        <ul class="submenu2">
@@ -96,9 +96,9 @@
                                         </ul> 
                                     </li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <li><a href="" title="">PAGES</a></li>
-                            <li><a href="" title="">BLOG</a>
+                            <!-- <li><a href="" title="">BLOG</a>
                                 <ul class="submenu">
                                     <li><a href="blog-list01.html">Blog List 01</a></li>
                                     <li><a href="blog-list02.html">Blog List 02</a></li>
@@ -108,7 +108,7 @@
                                     <li><a href="blog-details.html">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li><a href="" title="">SHOP</a></li>
+                            <li><a href="" title="">SHOP</a></li> -->
                             <li><a href="" title="">CONTACT</a></li>
                         </ul>
                     </nav>

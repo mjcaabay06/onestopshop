@@ -1,7 +1,7 @@
 <!-- Basic Page Needs -->
 <meta charset="utf-8">
 <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-<title>Eduharvard - Multi-Concept Education & Courses HTML Template</title>
+<title>One Stop Shop</title>
 
 <meta name="author" content="themesflat.com">
 

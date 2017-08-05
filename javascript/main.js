@@ -653,7 +653,7 @@
 
     var removePreloader = function() {        
         $('.loading-overlay').fadeOut('slow',function () {
-            $(this).remove();
+            // $(this).remove();
         });
     };
 
