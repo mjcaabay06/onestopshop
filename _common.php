@@ -1,6 +1,5 @@
 <script type="text/javascript">
 	function keyNumber(){
-		$(".number-only").val('');
 		$(".number-only").keydown(function(e){
 			if (!((e.keyCode >= 48 && e.keyCode <= 57) || e.keyCode == 8)) {
 				e.preventDefault();
@@ -54,4 +53,14 @@
 			$("#panel-not-match").hide();
 		}
 	}
+
+	// function required() {
+	// 	$(".required").focusout(function(){
+	// 		if ($(this).val() == '') {
+	// 			$(this).addClass('has-error');
+	// 		} else {
+	// 			$(this).removeClass('has-error');
+	// 		}
+	// 	});
+	// }
 </script>
