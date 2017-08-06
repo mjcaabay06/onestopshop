@@ -141,7 +141,7 @@
 					insertActivation($clientId, $activationCode);
 				}else{
 					$data['status'] = 'failed';
-					$data['message'] = "There was an error sending text message to:".$errorSending;
+					$data['message'] = "There was an error sending text message to: ".$errorSending;
 					if($diffError != ''){
 						echo "Reason:".$diffError;
 					}	
@@ -164,6 +164,7 @@
 				} else {
 					$data['status'] = 'failed';
 					$data['message'] = "Activation code not sent!";
+					$data['mysqli_error'] = mysqli_error($mysqli);
 				}
 				
 				echo json_encode($data);
@@ -211,6 +212,94 @@
 					$data['status'] = 'failed';
 					$data['message'] =  "Please enter your activation code again.";
 				}
+				echo json_encode($data);
+				break;
+			case 'recoverpass-email':
+				$data = array();
+
+				$email = $_POST['email'];
+				$question = $_POST['secretQuestion'];
+				$answer = $_POST['answer'];
+				$errorSending = array();
+				$diffError = '';
+				$error = true;
+				$message = '';
+
+				$selClient = "select * from clients where secret_question_id = " . $question . " and answer='" . $answer . "'";
+				$rsClient = mysqli_query($mysqli, $selClient);
+				$row = mysqli_fetch_assoc($rsClient);
+
+				if (isset($row)) {
+					$message = 'Your password is ' . $row['password'] . '.';
+					$data['status'] = true;
+				} else {
+					$message = 'Please review your Email Address and Mobile Number. These must be the correct data that you entered during your registratioin.';
+					$data['status'] = false;
+				}
+
+				if ($data['status']) {
+					if(phpMailer($email, "Recovered Password", $message)){
+						//echo "<div style='text-align:center;'><h1>Recover password sent!</h1></div>";
+						$data['message'] = "Recover password sent!";
+						$data['status'] = true;
+					} else {
+						//echo "<div style='text-align:center;'><h1>Recover password not sent!</h1></div>";
+						$data['message'] = "Recover password not sent. Please try to check your internet connection.";
+						$data['status'] = false;
+					}
+				} else {
+					//echo "<div style='text-align:center;'>" . $message . "</div>";
+					$data['message'] = $message;
+				}
+				echo json_encode($data);
+				break;
+			case 'recoverpass-sms':
+				$data = array();
+				$email = $_POST['email'];
+				$mobile = $_POST['mobile'];
+				$errorSending = array();
+				$diffError = '';
+				$error = false;
+				$message = '';
+
+				$selUser = "select * from clients inner join client_infos on client_infos.client_id = clients.id where client_infos.email_address='".$email."' and client_infos.mobile_number='".$mobile."'";
+				$rsUser = mysqli_query($mysqli, $selUser);
+				$row = mysqli_fetch_assoc($rsUser);
+
+				if (isset($row)) {
+					$message = 'Your password is ' . $row['password'] . '.';
+					$data['status'] = true;
+					
+				} else {
+					$message = 'Please review your Email Address and Mobile Number. These must be the correct data that you entered during your registratioin.';
+					$data['status'] = false;
+				}
+
+				if ($data['status']) {
+					$response = sendViaSemaphore($row['mobile_number'], $message);
+
+					if(empty($response) || !isset($response[0]->status)){
+						if(isset($response[0])){ //different error
+							$diffError = $response[0];
+						}
+						$errorSending = $row['mobile_number'];
+					}
+
+					if(empty($errorSending)){
+						$data['message'] = "Message Sent!";
+						$data['status'] = true;
+					}else{
+						$data['message'] = "Message not sent. Please try to check your internet connection.";
+						$data['sms-error'] = "There was an error sending text message to: " . $errorSending;
+						if($diffError != ''){
+							$data['sms-error'] += "Reason: " .$diffError;
+						}
+						$data['status'] = false;
+					}
+				} else {
+					$data['message'] = $message;
+				}
+
 				echo json_encode($data);
 				break;
 			default:

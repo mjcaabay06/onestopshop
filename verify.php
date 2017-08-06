@@ -51,7 +51,7 @@
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </div>
-                                            <div class="form-group hidden" id="panel-sms">
+                                            <div class="form-group" id="panel-sms">
                                                 <label class="hidden text-center control-label mb-10" style="text-transform: none" for="mobile-number">Verify mobile number</label>
                                                 <input type="text" class="form-control number-only" maxlength="11" required="" id="mobile-number" placeholder="Mobile Number" value="<?php echo isset($_SESSION['mobile']) ? $_SESSION['mobile'] : '' ?>">
                                             </div>
@@ -127,17 +127,20 @@
                         type: "post",
                         data: { action: "activation-sendsms", mobile: $("#mobile-number").val(), clientId: <?php echo $_SESSION['tempId'] ?>, password: "<?php echo $_SESSION['password'] ?>" },
                         success: function(response){
-                            $("#alert-success").removeClass('hidden');
-                            $("#alert-success").html(response);
+                            var result = jQuery.parseJSON(response);
 
-                            setTimeout(function(){
-                                if (!$("#panel-send-code").hasClass('hidden')) {
-                                    $("#panel-send-code").addClass('hidden');
-                                    $("#panel-activate").removeClass('hidden');
-                                }
-                                $("#alert-success").addClass('hidden');
-                                $("#alert-success").html('');
-                            },1500);
+                            if (result['status'] == 'success') {
+                                $("#send-alert-message").html('<div class="alert alert-success">' + result['message'] + '</div>');
+                                setTimeout(function(){
+                                    if (!$("#panel-send-code").hasClass('hidden')) {
+                                        $("#panel-send-code").addClass('hidden');
+                                        $("#panel-activate").removeClass('hidden');
+                                    }
+                                    $("#send-alert-message").html('');
+                                },1500);
+                            } else {
+                                $("#send-alert-message").html('<div class="alert alert-danger">' + result['message'] + '</div>');
+                            }
                             $(".loading-overlay").hide();
                         }
                     });
@@ -162,18 +165,6 @@
                             } else {
                                 $("#send-alert-message").html('<div class="alert alert-danger">' + result['message'] + '</div>');
                             }
-
-
-                            // $("#alert-success").removeClass('hidden');
-                            // $("#alert-success").html(response);
-                            // setTimeout(function(){
-                            //     if (!$("#panel-send-code").hasClass('hidden')) {
-                            //         $("#panel-send-code").addClass('hidden');
-                            //         $("#panel-activate").removeClass('hidden');
-                            //     }
-                            //     $("#alert-success").addClass('hidden');
-                            //     $("#alert-success").html('');
-                            // },1500);
                             $(".loading-overlay").hide();
                         }
                     });
