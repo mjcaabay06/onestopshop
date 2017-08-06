@@ -5,6 +5,133 @@
 
 	if ($_POST) {
 		switch (strtolower($_POST['action'])) {
+			case 'sign-in':
+				$data = array();
+				$isAuthenticated = false;
+				$username = $_POST['username'];
+				$password = $_POST['password'];
+
+				$chkLogin = "
+					select
+						*
+					from
+						clients
+					where
+						username = '" . $username . "'
+					and
+						password = '" . $password . "'
+					and
+						status_id = 1";
+				$rsLogin = mysqli_query($mysqli, $chkLogin);
+				$row = mysqli_fetch_assoc($rsLogin);
+
+				if (!empty($row)) {
+					$insertLogs = "
+						insert into
+						login_logs(
+							client_id,
+							ip_address,
+							remarks,
+							status_id
+						)
+						values(
+							" . $row['id'] . ",
+							'" . getClientIp() . "',
+							'Successful',
+							1
+						)";
+					$rsLogs = mysqli_query($mysqli, $insertLogs);
+					if ($rsLogs !== false) {
+						if ($row['disable_login_failure'] == 0) {
+							$upClient = "
+								update
+									clients
+								set
+									failed_login_attempt = 0
+								where
+									id = " . $row['id'];
+							$rsClient = mysqli_query($mysqli, $upClient);
+						}
+						
+						$_SESSION['authId'] = $row['id'];
+						$_SESSION['username'] = $row['username'];
+						$_SESSION['userType'] = $row['client_type_id'];
+					}
+					$isAuthenticated = true;
+				} else {
+					$insertLogs = "
+						insert into
+						login_logs(
+							ip_address,
+							remarks,
+							status_id
+						)
+						values(
+							'" . getClientIp() . "',
+							'Failed',
+							2
+						)";
+					$rsLogs = mysqli_query($mysqli, $insertLogs);
+				}
+
+				if ($isAuthenticated) {
+					$data['status'] = 'success';
+					$data['message'] = 'Authenticated!';
+				} else {
+					$data['status'] = 'failed';
+					$checkCredentials = "
+						select
+							*
+						from
+							clients
+						where 
+							username = '" . $username . "'
+						limit 1";
+					$rsCredentials = mysqli_query($mysqli, $checkCredentials);
+					$rowCredentials = mysqli_fetch_assoc($rsCredentials);
+
+					if (!empty($rowCredentials)) {
+						if ($rowCredentials['disable_login_failure'] == 0) {
+							if ($rowCredentials['failed_login_attempt'] < 2) {
+								$upClient = "
+									update
+										clients
+									set
+										failed_login_attempt = (failed_login_attempt + 1),
+										failed_login_time = NOW()
+									where
+										id = " . $rowCredentials['id'];
+								$rsUpClient = mysqli_query($mysqli, $upClient);
+
+								if ($rsUpClient !== false) {
+									$errorMessage = "You are not authenticated. You only have " . (2 - intval($rowCredentials['failed_login_attempt'])) . " login attempt.";
+								}
+							} else {
+								$upClient = "
+									update
+										clients
+									set
+										status_id = 2
+									where
+										id = " . $rowCredentials['id'];
+								$rsUpClient = mysqli_query($mysqli, $upClient);
+
+								if ($rsUpClient !== false) {
+									$errorMessage = "Your account is already locked. Please <a href='contact.php' style='text-decoration: underline;cursor: pointer;'>contact</a> the administrator.";
+								}
+							}	
+						} else {
+							$errorMessage = "You are not authenticated.";
+						}
+					} else {
+						if (sendEmail()) {
+							$errorMessage = "You are trying to force to login. Please sign-up.";
+						}
+					}
+					$data['message'] = $errorMessage;
+				}
+				echo json_encode($data);
+				break;
 			case 'sign-up':
 				$passwordType = $_POST['radio'] == 'sys-gen' ? 1 : 2;
 				$password = $passwordType == 1 ? randomPassword() : $_POST['tb-password'] ;
@@ -225,7 +352,15 @@
 				$error = true;
 				$message = '';
 
-				$selClient = "select * from clients where secret_question_id = " . $question . " and answer='" . $answer . "'";
+				$selClient = "
+					select
+						*
+					from
+						clients
+					where
+						secret_question_id = " . $question . "
+					and
+						answer='" . $answer . "'";
 				$rsClient = mysqli_query($mysqli, $selClient);
 				$row = mysqli_fetch_assoc($rsClient);
 
@@ -262,7 +397,19 @@
 				$error = false;
 				$message = '';
 
-				$selUser = "select * from clients inner join client_infos on client_infos.client_id = clients.id where client_infos.email_address='".$email."' and client_infos.mobile_number='".$mobile."'";
+				$selUser = "
+					select
+						*
+					from
+						clients
+					inner join
+						client_infos
+					on
+						client_infos.client_id = clients.id
+					where
+						client_infos.email_address = '" . $email . "'
+					and
+						client_infos.mobile_number = '" . $mobile . "'";
 				$rsUser = mysqli_query($mysqli, $selUser);
 				$row = mysqli_fetch_assoc($rsUser);
 
@@ -300,6 +447,21 @@
 					$data['message'] = $message;
 				}
 
+				echo json_encode($data);
+				break;
+			case 'send-unlock':
+				$data = array();
+				$email = $_POST['email'];
+				$message = 'Please unlock my account. This is my Email Address: ' . $email;
+				$adminEmail = 'dummyaccnt123@yahoo.com';
+				
+				if (phpMailer($adminEmail, "Unlock Account", $message)) {
+					$data['status'] = 'success';
+					$data['message'] = 'Email has been sent to the administrator.';
+				} else {
+					$data['status'] = 'failed';
+					$data['message'] = 'There was a problem sending your request. Please try again a short while.';
+				}
 				echo json_encode($data);
 				break;
 			default:

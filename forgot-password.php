@@ -1,5 +1,11 @@
 <?php
+    session_start();
     include "include/configuration.php";
+    include "include/general_functions.php";
+
+    if (isset($_SESSION['authId'])) {
+        header("Location: index.php");
+    }
 ?>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->

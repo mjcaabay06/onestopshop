@@ -123,4 +123,10 @@
 
 		return json_decode($output);
 	}
+
+	function sendEmail() {
+		$message = 'Someone trying to force a login. IP Address is <b>' . getClientIp() . '</b>';
+		$adminEmail = 'doodledummy617@gmail.com';
+		return phpMailer($adminEmail, "Brute-force Attack", $message);
+	}
 ?>

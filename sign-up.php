@@ -1,6 +1,11 @@
 <?php
     session_start();
     include "include/configuration.php";
+    include "include/general_functions.php";
+
+    if (isset($_SESSION['authId'])) {
+        header("Location: index.php");
+    }
 ?>
 <?php
     include "src/Captcha/simple-php-captcha.php";

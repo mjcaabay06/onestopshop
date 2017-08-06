@@ -1,5 +1,12 @@
 <?php
     session_start();
+    if(!isset($_SESSION['tempId']) || empty($_SESSION['tempId'])){
+        header("Location: login.php");
+        exit;
+    }else{
+        include "include/configuration.php";
+        include "include/general_functions.php";
+    }
 ?>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
