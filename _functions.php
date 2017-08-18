@@ -133,8 +133,8 @@
 				echo json_encode($data);
 				break;
 			case 'sign-up':
-				$passwordType = $_POST['radio'] == 'sys-gen' ? 1 : 2;
-				$password = $passwordType == 1 ? randomPassword() : $_POST['tb-password'] ;
+				#$passwordType = $_POST['radio'] == 'sys-gen' ? 1 : 2;
+				$password = $_POST['tb-password'] ;
 				$clientTypeId = 0;
 				$errCount = 0;
 
@@ -171,7 +171,7 @@
 						'" . $_POST['tb-answer'] . "',
 						" . $clientTypeId . ",
 						2,
-						" . $passwordType . ",
+						2,
 						(NOW() + INTERVAL 30 DAY),
 						'" . getClientIp() . "',
 						0

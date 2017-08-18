@@ -25,3 +25,10 @@
 <script type="text/javascript" src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
 <script type="text/javascript" src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
 <script type="text/javascript" src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+
+<script src="javascript/demo.js"></script>
+
+<!-- ads -->
+<!-- <script src="javascript/fusionad.js"></script> -->
+
+<script src="javascript/bootstrap-datepicker.min.js"></script>

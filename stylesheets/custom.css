@@ -55,7 +55,12 @@
 #mainnav > ul > li.active > a,
 #mainnav > ul > li:hover > a::after,
 .go-top::before,
-.go-top::after{
+.go-top::after,
+.portfolio-filter li.active a,
+.portfolio-filter li a:hover,
+.entry .entry-post h3.entry-title a:hover,
+.portfolio.style2 .entry .entry-post .entry-author span,
+.portfolio.style2 .entry .entry-post .entry-author span a{
 	color: #37a000 !important;
 }
 #mainnav ul.submenu{
@@ -74,6 +79,138 @@ input[type="password"]:focus{
 	border-left-color: #37a000;
 }
 
+.header{
+	background-color:rgba(255, 255, 255, 1);
+}
+
 /*#mainnav > ul > li > a::after{
 	display: none
 }*/
+
+section.module.parallax{
+	padding: 0 0 100px;
+}
+
+section.module.parallax-1 input{
+	background-color: rgba(255,255,255,0.5);
+	border: 2px solid #fff;
+	padding: 5px 10px;
+	color: #333;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+section.module.parallax-1 button{
+	background-color: rgba(255,255,255,0.5);
+	border: 2px solid #fff;
+	color: #333;
+	font-size: 18px;
+}
+section.module.parallax-1 button:hover{
+	background-color: rgba(255,255,255,1);
+}
+
+.datepicker-days{
+  color:#333;
+}
+
+.flat-row.custom{
+	padding: 0
+}
+
+.droplets{
+	margin: 20px auto 30px;
+	padding: 0;
+	text-align: center;
+	background: url('../images/droplets.png');
+	width: 402px;
+	height: 41px;
+	display: block;
+}
+
+.img-holder{
+	height: 187px;
+	width: auto;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#mainnav > ul > li > a.no-content::after{
+	content: '';
+}
+
+
+/****** SLIDER ******/
+#slider {
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto 0 auto;
+  /*border-radius: 4px;*/
+}
+
+#slider ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  /*height: 200px;*/
+  height: 300px;
+  list-style: none;
+}
+
+#slider ul li {
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  /*width: 500px;*/
+  width: 100%;
+  height: 300px;
+  background: #333;
+  text-align: center;
+  line-height: 300px;
+}
+
+button.control_prev, button.control_next {
+  position: absolute;
+  /*top: 40%;*/
+  top: 30%;
+  z-index: 999;
+  display: block;
+  padding: 4% 3%;
+  width: auto;
+  height: auto;
+  background: #2a2a2a;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  opacity: 0.8;
+  cursor: pointer;
+  border: none;
+}
+
+button.control_prev:hover, button.control_next:hover {
+  opacity: 1;
+  -webkit-transition: all 0.2s ease;
+}
+
+button.control_prev {
+  border-radius: 0 2px 2px 0;
+}
+
+button.control_next {
+  right: 0;
+  border-radius: 2px 0 0 2px;
+}
+
+#slider img{
+	height: 300px
+}
+
+.btn-primary[disabled],
+.btn-primary[disabled]:hover{
+	background-color: #ccc;
+	border-color: #ccc;
+}

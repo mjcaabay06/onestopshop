@@ -59,11 +59,11 @@
                                                 <div class="clearfix"></div>
                                             </div>
                                             <div class="form-group" id="panel-sms">
-                                                <label class="hidden text-center control-label mb-10" style="text-transform: none" for="mobile-number">Verify mobile number</label>
+                                                <label class="hidden text-center control-label mb-10 txt-dark" style="text-transform: none" for="mobile-number">Verify mobile number</label>
                                                 <input type="text" class="form-control number-only" maxlength="11" required="" id="mobile-number" placeholder="Mobile Number" value="<?php echo isset($_SESSION['mobile']) ? $_SESSION['mobile'] : '' ?>">
                                             </div>
                                             <div class="form-group hidden" id="panel-email">
-                                                <label class="hidden text-center control-label mb-10" style="text-transform: none" for="email-address">Verify email address</label>
+                                                <label class="hidden text-center control-label mb-10 txt-dark" style="text-transform: none" for="email-address">Verify email address</label>
                                                 <input type="email" class="form-control" required="" id="email-address" placeholder="Email Address" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : '' ?>">
                                             </div>
                                             <div class="form-group">

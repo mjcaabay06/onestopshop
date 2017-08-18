@@ -15,7 +15,7 @@
             <div class="col-md-4">
                 <div class="wrap-flat">
                     <ul class="flat-login-register">
-                        <li><a href="sign-in.php">Sign In</a></li>
+                        <li><a href="sign-in.php">Log In</a></li>
                         <li><a href="sign-up.php">Sign Up</a></li>
                     </ul>
                 </div><!-- wrap-flat -->
@@ -39,16 +39,7 @@
                 <div class="wrap-nav pull-left ml-50">
                     <nav id="mainnav" class="mainnav">
                         <ul class="menu">
-                            <li class="active"><a href="index.html" title="">HOME</a>
-                                <ul class="submenu">
-                                    <li><a href="index.html" title="">Home style 01</a></li>
-                                    <li><a href="index2.html" title="">Home style 02</a></li>
-                                    <li><a href="index3.html" title="">Home style 03</a></li>
-                                    <li><a href="index4.html" title="">Home style 04</a></li>
-                                    <li><a href="index5.html" title="">Home style 05</a></li>
-                                    <li><a href="index6.html" title="">Home style 06</a></li>
-                                </ul>
-                            </li>
+                            <li class="active"><a href="index.php" title="" class="no-content">HOME</a></li>
                             <!-- <li><a href="" title="">COURSES</a>
                                 <ul class="submenu submenu-style2">
                                     <li class="submenu-level">
@@ -97,7 +88,16 @@
                                     </li>
                                 </ul>
                             </li> -->
-                            <li><a href="" title="">PAGES</a></li>
+                            <li><a href="" title="">PAGES</a>
+                                <ul class="submenu">
+                                    <li><a href="index.html" title="">Home style 01</a></li>
+                                    <li><a href="index2.html" title="">Home style 02</a></li>
+                                    <li><a href="index3.html" title="">Home style 03</a></li>
+                                    <li><a href="index4.html" title="">Home style 04</a></li>
+                                    <li><a href="index5.html" title="">Home style 05</a></li>
+                                    <li><a href="index6.html" title="">Home style 06</a></li>
+                                </ul>
+                            </li>
                             <!-- <li><a href="" title="">BLOG</a>
                                 <ul class="submenu">
                                     <li><a href="blog-list01.html">Blog List 01</a></li>
@@ -109,7 +109,7 @@
                                 </ul>
                             </li>
                             <li><a href="" title="">SHOP</a></li> -->
-                            <li><a href="" title="">CONTACT</a></li>
+                            <li><a href="" title="" class="no-content">CONTACT</a></li>
                         </ul>
                     </nav>
                 </div><!-- /wrap-nav -->

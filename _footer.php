@@ -1,7 +1,7 @@
 <!-- Footer -->
 <footer id="footer" class="footer">
     <div class="container">
-        <div class="footer-information">
+        <div class="footer-information" style="border-bottom: none">
             <div class="row">
                 <div class="col-md-6 col-sm-6 info-left">
                     <div class="logo-footer">
@@ -23,7 +23,7 @@
                 </div><!-- col-md-6 -->
             </div><!-- row -->
         </div><!-- footer-information -->
-        <div class="footer-widget">
+        <div class="footer-widget hidden">
                <div class="row">
                    <div class="col-md-3 col-sm-6">
                        <div class="widget widget-our-services">

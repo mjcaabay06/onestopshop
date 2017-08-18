@@ -34,7 +34,7 @@
                             <div class="panel-wrapper">
                                 <div class="panel-body" style="padding: 40px">
                                     <div class="form-group text-center mb-40">
-                                        <h6 style="font-size: 2em" class="txt-dark">Sign In</h6>
+                                        <h6 style="font-size: 2em" class="txt-dark">Log In</h6>
                                     </div>
                                     <div class="form-group">
                                         <div id="alert-message"></div>
@@ -46,7 +46,7 @@
                                         <input type="password" name="tb-password" class="form-control txt-dark" placeholder="Password">
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-primary btn-sm pull-right" id="btn-sign-in">Sign In</button>
+                                        <button class="btn btn-primary btn-sm pull-right" id="btn-sign-in">Log In</button>
                                         <a href="forgot-password.php" class="pull-left" style="color: #62ade0">Forgot password?</a>
                                         <div class="clearfix"></div>
                                     </div>
@@ -80,7 +80,14 @@
                         if (result['status'] == 'success') {
                             $("#alert-message").html('<div class="alert alert-success">' + result['message'] + '</div>');
                             setTimeout(function(){
-                                window.location.href = 'index.php';
+                                <?php
+                                    if (!empty($_SESSION["tempBookingId"])):
+                                ?>
+                                    window.location.href = 'booking-submit.php?eid=<?php echo $_SESSION['eid'] ?>';
+                                <?php else: ?>
+                                    window.location.href = 'index.php';
+                                <?php endif; ?>
+                                
                             },1500);
                         } else {
                             $("#alert-message").html('<div class="alert alert-danger">' + result['message'] + '</div>');

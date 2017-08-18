@@ -27,6 +27,13 @@
 <!-- Favicon and touch icons  -->    
 <link href="icon/icon.png" rel="shortcut icon">
 
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab">
+<!-- <link rel="stylesheet" href="stylesheets/base.css"> -->
+<link rel="stylesheet" href="stylesheets/style-parallax.css">
+
+<!-- js -->
+<script src="javascript/modernizr.js"></script>
+<link href="stylesheets/bootstrap-datepicker.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="stylesheets/custom.css">
 
 <!--[if lt IE 9]>
