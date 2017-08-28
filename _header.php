@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-8">
                 <ul class="flat-information">
-                    <li>Mon - Fri: 8.00 - 18:00</li>
+                    <li>Mon - Fri: 8.00 - 18:00</li>TESTING
                 </ul>
                 <ul class="flat-socials">
                     <li><a href=""><i class="fa fa-facebook"></i></a></li>
