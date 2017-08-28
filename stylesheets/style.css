@@ -3136,4 +3136,112 @@ ol.comments-list {
 }
 
     
-	
+/*Caledar*/
+.calendar-event {
+  cursor: move;
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+.calendar-event a {
+  color: #fff;
+  font-size: 10px;
+  margin: 4px 0 0 10px;
+  opacity: 0.6;
+}
+
+.fc button {
+  height: auto !important;
+  font-size: 14px !important;
+  text-shadow: none !important;
+}
+
+button.fc-agendaDay-button.fc-state-default.fc-corner-right,
+button.fc-month-button.fc-state-default.fc-corner-left,
+button.fc-agendaWeek-button {
+  padding: 9px 25px;
+}
+
+.fc-month-button, .fc-agendaWeek-button {
+  margin-right: 15px !important;
+}
+
+.fc-event {
+  background-color: rgba(70, 148, 8, 0.2);
+  border: none;
+  border-radius: 0;
+  font-size: 12px;
+  color: #212121;
+}
+
+.fc-day-grid-event {
+  margin: 5px 0 0;
+  padding: 5px;
+}
+
+.fc-prev-button, .fc-next-button, .fc-today-button {
+  border-radius: 0 !important;
+}
+
+.fc-unthemed .fc-today {
+  background: #469408;
+  color: #fff;
+}
+
+.fc-event, .fc-event:hover, .ui-widget .fc-event {
+  color: #212121;
+}
+
+.fc-unthemed th, .fc-unthemed td, .fc-unthemed thead, .fc-unthemed tbody, .fc-unthemed .fc-divider, .fc-unthemed .fc-row, .fc-unthemed .fc-content, .fc-unthemed .fc-popover {
+  border-color: rgba(33, 33, 33, 0.1);
+}
+
+.small-calendar .fc-left h2 {
+  font-size: 16px;
+  line-height: 20px;
+}
+.small-calendar .fc-next-button, .small-calendar .fc-prev-button {
+  background: transparent;
+  border: none;
+  color: #878787;
+  font-size: 20px !important;
+  padding: 0;
+  line-height: 0;
+}
+.small-calendar .fc-next-button .fc-icon, .small-calendar .fc-prev-button .fc-icon {
+  display: inline-block;
+  font-family: "Material-Design-Iconic-Font";
+  font-feature-settings: normal;
+  font-kerning: auto;
+  font-language-override: normal;
+  font-size: inherit;
+  font-size-adjust: none;
+  font-stretch: normal;
+  font-style: normal;
+  font-synthesis: weight style;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-rendering: auto;
+}
+.small-calendar .fc-next-button .fc-icon-right-single-arrow:before {
+  content: '\f2fb';
+}
+.small-calendar .fc-next-button .fc-icon-right-single-arrow:after {
+  content: '';
+  font-size: inherit;
+  font-weight: inherit;
+  top: inherit;
+}
+.small-calendar .fc-prev-button {
+  margin-right: 5px !important;
+}
+.small-calendar .fc-prev-button .fc-icon-left-single-arrow:before {
+  content: '\f2fa';
+}
+.small-calendar .fc-prev-button .fc-icon-left-single-arrow:after {
+  content: '';
+  font-size: inherit;
+  font-weight: inherit;
+  top: inherit;
+}

@@ -26,7 +26,7 @@
                     <a href="index.php"><img src="images/logo-footer.png" /></a>
                 </div>
                 <div class="col-md-10">
-                    <?php if(!empty($_SESSION['tempBookingId']) && strtolower(basename($_SERVER['PHP_SELF'])) == 'booking-customize.php'): ?>
+                    <?php if(empty($_SESSION['tempBookingId'])): ?>
                         <form id="form-check" action="booking.php" method="get">
                             <div class="form-group col-md-4 col-sm-12" style="padding: 0 2px">
                                 <input type="text" id="book-from" class="text-center" name="book-from" placeholder="Start Date" style="height: auto;padding: 11px 10px;" value="<?php echo empty($_GET['book-from']) ? '' :  $_GET['book-from'] ?>" />
