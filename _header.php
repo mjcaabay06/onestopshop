@@ -15,8 +15,18 @@
             <div class="col-md-4">
                 <div class="wrap-flat">
                     <ul class="flat-login-register">
-                        <li><a href="sign-in.php">Log In</a></li>
-                        <li><a href="sign-up.php">Sign Up</a></li>
+                        <?php if (empty($_SESSION['authId'])): ?>
+                            <li><a href="sign-in.php">Log In</a></li>
+                            <li><a href="sign-up.php">Sign Up</a></li>
+                        <?php else: ?>
+                            <?php
+                                $selUser = "select * from clients inner join client_infos on client_infos.client_id = clients.id where clients.id = " . $_SESSION['authId'];
+                                $rsUser = mysqli_query($mysqli, $selUser);
+                                $rowUser = mysqli_fetch_assoc($rsUser);
+                            ?>
+                            <li>Welcome <?php echo ucfirst($rowUser['first_name']) ?>!</li>
+                            <li><a href="logout.php">Logout</a></li>
+                        <?php endif; ?>
                     </ul>
                 </div><!-- wrap-flat -->
             </div><!-- col-md-4 -->
@@ -28,7 +38,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="logo">
-                    <a href="#"><img src="images/logo.png" alt="image"></a>
+                    <a href="index.php"><img src="images/logo.png" alt="image"></a>
                 </div><!-- /logo -->
                 <!-- <div class="flat-search">
                     <ul>

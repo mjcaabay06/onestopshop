@@ -70,7 +70,7 @@
     <!-- Boxed --> 
     <div class="boxed position_form">
         
-    <?php include("booking/_header.php"); ?>
+    <?php include("_header.php"); ?>
 
         <!-- Iconbox -->
         <section class="flat-row bg-theme custom pt-40 pb-40 wrap-price-post">
@@ -96,14 +96,14 @@
                                     <form>
                                         <?php
                                             $id = 26;
-                                            $selBooking = "select * from bookings inner join (clients inner join client_infos on client_infos.client_id = clients.id) on clients.id = bookings.customer_id inner join (client_events inner join event_types on event_types.id = client_events.event_type_id) on client_events.id = bookings.client_event_id where bookings.approval_type_id = 3 and client_events.client_id = " . $id . " order by bookings.created_at";
+                                            $selBooking = "select *, bookings.id as booking_id from bookings inner join (clients inner join client_infos on client_infos.client_id = clients.id) on clients.id = bookings.customer_id inner join (client_events inner join event_types on event_types.id = client_events.event_type_id) on client_events.id = bookings.client_event_id where bookings.approval_type_id = 3 and client_events.client_id = " . $id . " order by bookings.created_at";
                                             $rsBooking = mysqli_query($mysqli, $selBooking);
                                             $cntBooking = mysqli_num_rows($rsBooking);
 
                                             if ($cntBooking > 0):
                                         ?>
                                             <?php while($book = mysqli_fetch_assoc($rsBooking)): ?>
-                                                <div class="item">
+                                                <div class="item" data-id="<?php echo $book['booking_id'] ?>">
                                                     <label class="pull-left name"><?php echo $book['last_name'] . ', ' . $book['first_name'] ?></label>
                                                     <label class="pull-right event"><?php echo $book['type'] ?></label>
                                                     <div class="clearfix"></div>
@@ -125,14 +125,14 @@
                                     <div class="head approved"><h2>Approved Booking</h2></div>
                                     <form>
                                         <?php
-                                            $selBooking = "select * from bookings inner join (clients inner join client_infos on client_infos.client_id = clients.id) on clients.id = bookings.customer_id inner join (client_events inner join event_types on event_types.id = client_events.event_type_id) on client_events.id = bookings.client_event_id where bookings.approval_type_id = 1 and client_events.client_id = " . $id . " order by bookings.created_at";
+                                            $selBooking = "select *, bookings.id as booking_id from bookings inner join (clients inner join client_infos on client_infos.client_id = clients.id) on clients.id = bookings.customer_id inner join (client_events inner join event_types on event_types.id = client_events.event_type_id) on client_events.id = bookings.client_event_id where bookings.approval_type_id = 1 and client_events.client_id = " . $id . " order by bookings.created_at";
                                             $rsBooking = mysqli_query($mysqli, $selBooking);
                                             $cntBooking = mysqli_num_rows($rsBooking);
 
                                             if ($cntBooking > 0):
                                         ?>
                                             <?php while($book = mysqli_fetch_assoc($rsBooking)): ?>
-                                                <div class="item">
+                                                <div class="item" data-id="<?php echo $book['booking_id'] ?>">
                                                     <label class="pull-left name"><?php echo $book['last_name'] . ', ' . $book['first_name'] ?></label>
                                                     <label class="pull-right event"><?php echo $book['type'] ?></label>
                                                     <div class="clearfix"></div>
@@ -154,14 +154,14 @@
                                     <div class="head disapproved"><h2>Disapproved Booking</h2></div>
                                     <form>
                                         <?php
-                                            $selBooking = "select * from bookings inner join (clients inner join client_infos on client_infos.client_id = clients.id) on clients.id = bookings.customer_id inner join (client_events inner join event_types on event_types.id = client_events.event_type_id) on client_events.id = bookings.client_event_id where bookings.approval_type_id = 2 and client_events.client_id = " . $id . " order by bookings.created_at";
+                                            $selBooking = "select *, bookings.id as booking_id from bookings inner join (clients inner join client_infos on client_infos.client_id = clients.id) on clients.id = bookings.customer_id inner join (client_events inner join event_types on event_types.id = client_events.event_type_id) on client_events.id = bookings.client_event_id where bookings.approval_type_id = 2 and client_events.client_id = " . $id . " order by bookings.created_at";
                                             $rsBooking = mysqli_query($mysqli, $selBooking);
                                             $cntBooking = mysqli_num_rows($rsBooking);
 
                                             if ($cntBooking > 0):
                                         ?>
                                             <?php while($book = mysqli_fetch_assoc($rsBooking)): ?>
-                                                <div class="item">
+                                                <div class="item" data-id="<?php echo $book['booking_id'] ?>">
                                                     <label class="pull-left name"><?php echo $book['last_name'] . ', ' . $book['first_name'] ?></label>
                                                     <label class="pull-right event"><?php echo $book['type'] ?></label>
                                                     <div class="clearfix"></div>
@@ -196,11 +196,8 @@
             $(".portfolio-filter.style1 li a:eq(0)").click();
 
             $(".item").on('click', function(){
-                var eid = $(this).data('id');
-                var type = $(".portfolio-filter.style1 li.active a").data('id');
-                var bookFrom = $("#book-from").val();
-                var bookTo= $("#book-to").val();
-                window.location.href = "booking-customize.php?type=" + type + "&book-from=" + bookFrom + "&book-to=" + bookTo + "&eid=" + eid;
+                var id = $(this).data('id');
+                window.location.href = "org-view.php?id=" + id;
             });
         });
     </script>

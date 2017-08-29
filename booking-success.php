@@ -56,7 +56,7 @@
             color: #fff;
             margin-bottom: 15px;
         }
-        #loading{
+        /*#loading{
             position:fixed;
             left:45%;
             top:40%;
@@ -79,7 +79,7 @@
             background-color:#FFF;
             opacity:0.8;
             display:none
-        }
+        }*/
         #table-pkg span.sup {
             display: block;
             font-size: 12px;

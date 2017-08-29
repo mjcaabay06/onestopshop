@@ -27,24 +27,6 @@
         .checkbox label{
             padding-left: 25px;
         }
-        hr.style-one{
-            border: 0;
-            height: 2px;
-            margin: 5px 0;
-            background-image: -webkit-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.75),rgba(0,0,0,0));
-            background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.75),rgba(0,0,0,0));
-            background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.75),rgba(0,0,0,0));
-            background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.75),rgba(0,0,0,0));
-        }
-        hr.style-two{
-            border: 0;
-            height: 3px;
-            margin: 30px 0;
-            background-image: -webkit-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.75),rgba(0,0,0,0));
-            background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.75),rgba(0,0,0,0));
-            background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.75),rgba(0,0,0,0));
-            background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.75),rgba(0,0,0,0));
-        }
         .computed{
             border: 1px solid #eee;
             background-color: #fff;
@@ -60,30 +42,7 @@
             color: #fff;
             margin-bottom: 15px;
         }
-        #loading{
-            position:fixed;
-            left:45%;
-            top:40%;
-            z-index:20001;
-            height:auto;
-            display:none;
-            background-color:#FFF;
-            padding:20px;
-            -moz-box-shadow:0px 0px 2px 2px #DDD;
-            -webkit-box-shadow:0px 0px 2px 2px #DDD;
-            box-shadow:0px 0px 2px 2px #DDD
-        }
-        #loading-mask{
-            position:fixed;
-            left:0;
-            top:0;
-            width:100%;
-            height:100%;
-            z-index:20000;
-            background-color:#FFF;
-            opacity:0.8;
-            display:none
-        }
+        
         #table-pkg span.sup {
             display: block;
             font-size: 12px;
@@ -167,7 +126,7 @@
                                             while($sup = mysqli_fetch_assoc($rsSupplier)):
                                         ?>
                                             <div data-id="<?php echo $pkg['id'] ?>">
-                                                <input data-title="<?php echo $sup['name']; ?>" data-id="<?php echo $sup['id'] ?>" id="cb-sup-<?php echo $sup['id'] ?>" name="radio" type="radio" class="supplier-item">
+                                                <input data-title="<?php echo $sup['name']; ?>" data-id="<?php echo $sup['supplier_id'] ?>" id="cb-sup-<?php echo $sup['id'] ?>" name="radio" type="radio" class="supplier-item">
                                                 <label for="cb-sup-<?php echo $sup['id'] ?>">
                                                     <?php echo $sup['name']; ?>
                                                 </label>
