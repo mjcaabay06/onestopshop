@@ -77,7 +77,9 @@
 				if ($isAuthenticated) {
 					$data['status'] = 'success';
 					$data['message'] = 'Authenticated!';
+					$data['type'] = $row['client_type_id'];
 				} else {
+					$errorMessage = '';
 					$data['status'] = 'failed';
 					$checkCredentials = "
 						select

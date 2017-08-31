@@ -259,3 +259,51 @@ hr.style-two{
     opacity:0.8;
     display:none
 }
+
+.withdatepicker{
+  height: auto;
+  padding: 11px 10px;
+}
+
+/* SIDE PANEL*/
+.rpanel {
+  border: 1px solid #eee;
+  background-color: #fff;
+}
+.rpanel.dark{
+  color: #505050;
+  background-color: #f5f8fa;
+}
+.rpanel .head{
+  background-color: #22272b;
+  text-align: center;
+  padding: 15px;
+  color: #fff;
+}
+.rpanel .body{
+  padding: 15px;
+}
+.rpanel .footer .btn-primary{
+  height: auto;
+  border-color: transparent;
+  padding: 0 22px;
+  background-color: #37a000;
+  color: #fff;
+  width: 100%;
+  font-weight: normal;
+}
+.rpanel .footer .btn-primary:hover{
+  background-color: #008329;
+}
+
+.text-left{
+    text-align: left !important;
+}
+
+.text-center{
+    text-align: center !important;
+}
+
+.text-right{
+    text-align: right !important;
+}

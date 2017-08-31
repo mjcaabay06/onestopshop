@@ -85,6 +85,7 @@
     <?php include("_footer-js.php"); ?>
     <script type="text/javascript">
         $(document).ready(function(){
+            $(".portfolio-filter.style1 li a:eq(0)").click();
             $("#book-from").datepicker({autoclose: true});
             $("#book-to").datepicker({autoclose: true});
         });

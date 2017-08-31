@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 18, 2017 at 12:15 PM
+-- Generation Time: Aug 31, 2017 at 11:42 AM
 -- Server version: 5.7.19-0ubuntu0.16.04.1
 -- PHP Version: 7.0.22-0ubuntu0.16.04.1
 
@@ -81,10 +81,12 @@ CREATE TABLE `bookings` (
 --
 
 INSERT INTO `bookings` (`id`, `date_from`, `date_to`, `client_event_id`, `customer_id`, `remarks`, `created_at`, `updated_at`, `status_id`, `total_amount`, `approval_type_id`) VALUES
-(1, '2017-08-19', '2017-08-19', 1, 1, NULL, '2017-08-17 21:20:54', '2017-08-17 21:20:54', 1, 0, 0),
-(2, '2017-08-20', '2017-08-21', 3, 3, NULL, '2017-08-17 21:20:54', '2017-08-17 21:20:54', 2, 0, 0),
-(3, '2017-08-23', '2017-08-26', 5, 25, NULL, '2017-08-17 21:20:54', '2017-08-17 21:20:54', 1, 0, 0),
-(13, '1970-01-01', '1970-01-01', 5, 1, 'My remarks', '2017-08-18 12:13:08', '2017-08-18 12:13:08', 1, 2200, 3);
+(1, '2017-08-19', '2017-08-19', 5, 1, NULL, '2017-08-17 21:20:54', '2017-08-17 21:20:54', 1, 0, 2),
+(2, '2017-08-20', '2017-08-21', 6, 3, NULL, '2017-08-17 21:20:54', '2017-08-17 21:20:54', 2, 0, 1),
+(3, '2017-08-23', '2017-08-26', 5, 25, NULL, '2017-08-17 21:20:54', '2017-08-17 21:20:54', 1, 0, 3),
+(13, '2017-09-02', '2017-09-02', 7, 1, 'My remarks', '2017-08-18 12:13:08', '2017-08-18 12:13:08', 1, 2200, 2),
+(14, '2017-08-05', '2017-08-05', 5, 3, 'my remarks', '2017-08-28 14:58:47', '2017-08-28 14:58:47', 1, 4200, 2),
+(15, '2017-09-02', '2017-09-03', 5, 1, 'This is my order', '2017-08-29 15:46:07', '2017-08-29 15:46:07', 1, 2200, 3);
 
 -- --------------------------------------------------------
 
@@ -107,7 +109,11 @@ CREATE TABLE `booking_summaries` (
 
 INSERT INTO `booking_summaries` (`id`, `booking_id`, `client_event_package_id`, `client_supplier_id`, `created_at`, `updated_at`) VALUES
 (9, 13, 1, 0, '2017-08-18 12:13:08', '2017-08-18 12:13:08'),
-(10, 13, 2, 4, '2017-08-18 12:13:08', '2017-08-18 12:13:08');
+(10, 13, 2, 4, '2017-08-18 12:13:08', '2017-08-18 12:13:08'),
+(11, 14, 2, 5, '2017-08-28 14:58:47', '2017-08-28 14:58:47'),
+(12, 14, 3, 0, '2017-08-28 14:58:47', '2017-08-28 14:58:47'),
+(13, 15, 1, 0, '2017-08-29 15:46:07', '2017-08-29 15:46:07'),
+(14, 15, 2, 27, '2017-08-29 15:46:07', '2017-08-29 15:46:07');
 
 -- --------------------------------------------------------
 
@@ -140,12 +146,12 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `username`, `password`, `secret_question_id`, `answer`, `client_type_id`, `status_id`, `password_type_id`, `password_expiry_date`, `ip_address`, `failed_login_attempt`, `failed_login_time`, `disable_login_failure`, `last_access`, `created_at`, `updated_at`, `ratings`) VALUES
-(1, 'mjcaabay06', 'Marc1234$', 1, 'Mac', 2, 1, 2, '2017-09-04 00:00:00', NULL, 0, NULL, NULL, '2017-08-18 12:12:07', '2017-08-04 09:44:36', '2017-08-04 09:44:36', 0),
+(1, 'mjcaabay', 'Marc1234$', 1, 'Mac', 2, 1, 2, '2017-09-04 00:00:00', NULL, 0, NULL, NULL, '2017-08-30 20:06:32', '2017-08-04 09:44:36', '2017-08-04 09:44:36', 0),
 (3, 'jamesyap', 'james', 1, 'James', 1, 1, 1, '2017-09-03 20:52:54', '127.0.0.1', 0, '2017-08-06 11:06:00', 0, NULL, '2017-08-04 20:52:54', '2017-08-04 20:52:54', 0),
 (5, 'paullee', 'Paul1234$', 4, 'Balut', 2, 2, 2, '2017-09-03 20:56:32', '127.0.0.1', 0, NULL, 0, NULL, '2017-08-04 20:56:32', '2017-08-04 20:56:32', 13),
 (24, 'mjcaabay', 'Marc1234$', 1, 'Mac', 2, 2, 2, '2017-09-05 07:04:29', '127.0.0.1', 2, '2017-08-06 19:04:51', 0, '2017-08-06 11:40:45', '2017-08-06 07:04:29', '2017-08-06 07:04:29', 6),
 (25, 'rechelle', '123', 1, 'b1', 3, 1, 2, '2017-09-05 18:59:27', '127.0.0.1', 0, NULL, 0, '2017-08-06 19:03:38', '2017-08-06 18:59:27', '2017-08-06 18:59:27', 0),
-(26, 'peterco', 'Peter1234$', 2, 'Yam', 2, 2, 2, '2017-09-11 15:33:08', '127.0.0.1', 0, NULL, 0, NULL, '2017-08-12 15:33:08', '2017-08-12 15:33:08', 3),
+(26, 'peterco', 'Peter1234$', 2, 'Yam', 2, 1, 2, '2017-09-11 15:33:08', '127.0.0.1', 0, '2017-08-30 20:08:58', 0, '2017-08-30 20:10:07', '2017-08-12 15:33:08', '2017-08-12 15:33:08', 3),
 (27, 'frank', 'Frank1234$', 1, 'Frank', 3, 1, 2, '2017-09-17 07:04:50', '127.0.0.1', 0, NULL, 0, NULL, '2017-08-18 07:04:50', '2017-08-18 07:04:50', 0);
 
 -- --------------------------------------------------------
@@ -201,7 +207,7 @@ INSERT INTO `client_events` (`id`, `client_id`, `event_type_id`, `ratings`, `cre
 (3, 24, 4, 0, '2017-08-12 22:56:20', '2017-08-12 22:56:20', NULL),
 (4, 24, 3, 0, '2017-08-12 22:56:20', '2017-08-12 22:56:20', NULL),
 (5, 26, 1, 0, '2017-08-12 22:56:20', '2017-08-12 22:56:20', 'This is just a sample description for the company'),
-(6, 26, 5, 0, '2017-08-12 22:56:20', '2017-08-12 22:56:20', NULL),
+(6, 26, 4, 0, '2017-08-12 22:56:20', '2017-08-12 22:56:20', NULL),
 (7, 26, 2, 0, '2017-08-12 22:56:20', '2017-08-12 22:56:20', NULL);
 
 -- --------------------------------------------------------
@@ -269,6 +275,7 @@ CREATE TABLE `client_suppliers` (
   `id` bigint(20) NOT NULL,
   `client_event_package_id` bigint(20) NOT NULL,
   `supplier_id` bigint(20) NOT NULL,
+  `price` double DEFAULT '0',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -277,9 +284,9 @@ CREATE TABLE `client_suppliers` (
 -- Dumping data for table `client_suppliers`
 --
 
-INSERT INTO `client_suppliers` (`id`, `client_event_package_id`, `supplier_id`, `created_at`, `updated_at`) VALUES
-(1, 2, 25, '2017-08-18 01:11:37', '2017-08-18 01:11:37'),
-(2, 2, 27, '2017-08-18 07:05:23', '2017-08-18 07:05:23');
+INSERT INTO `client_suppliers` (`id`, `client_event_package_id`, `supplier_id`, `price`, `created_at`, `updated_at`) VALUES
+(1, 2, 25, 1000, '2017-08-18 01:11:37', '2017-08-18 01:11:37'),
+(2, 2, 27, 1200, '2017-08-18 07:05:23', '2017-08-18 07:05:23');
 
 -- --------------------------------------------------------
 
@@ -365,7 +372,16 @@ INSERT INTO `login_logs` (`id`, `client_id`, `ip_address`, `remarks`, `status_id
 (15, NULL, '127.0.0.1', 'Failed', 2, '2017-08-06 19:04:51', '2017-08-06 19:04:51'),
 (16, NULL, '127.0.0.1', 'Failed', 2, '2017-08-06 19:04:56', '2017-08-06 19:04:56'),
 (17, 1, '127.0.0.1', 'Successful', 1, '2017-08-18 12:08:43', '2017-08-18 12:08:43'),
-(18, 1, '127.0.0.1', 'Successful', 1, '2017-08-18 12:13:26', '2017-08-18 12:13:26');
+(18, 1, '127.0.0.1', 'Successful', 1, '2017-08-18 12:13:26', '2017-08-18 12:13:26'),
+(19, 1, '127.0.0.1', 'Successful', 1, '2017-08-29 14:48:01', '2017-08-29 14:48:01'),
+(20, 1, '127.0.0.1', 'Successful', 1, '2017-08-29 14:59:23', '2017-08-29 14:59:23'),
+(21, 1, '127.0.0.1', 'Successful', 1, '2017-08-29 15:46:26', '2017-08-29 15:46:26'),
+(22, 1, '127.0.0.1', 'Successful', 1, '2017-08-30 20:01:18', '2017-08-30 20:01:18'),
+(23, 1, '127.0.0.1', 'Successful', 1, '2017-08-30 20:02:18', '2017-08-30 20:02:18'),
+(24, NULL, '127.0.0.1', 'Failed', 2, '2017-08-30 20:06:42', '2017-08-30 20:06:42'),
+(25, NULL, '127.0.0.1', 'Failed', 2, '2017-08-30 20:08:47', '2017-08-30 20:08:47'),
+(26, NULL, '127.0.0.1', 'Failed', 2, '2017-08-30 20:08:58', '2017-08-30 20:08:58'),
+(27, 26, '127.0.0.1', 'Successful', 1, '2017-08-30 20:09:11', '2017-08-30 20:09:11');
 
 -- --------------------------------------------------------
 
@@ -592,12 +608,12 @@ ALTER TABLE `approval_types`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `booking_summaries`
 --
 ALTER TABLE `booking_summaries`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `clients`
 --
@@ -642,7 +658,7 @@ ALTER TABLE `event_types`
 -- AUTO_INCREMENT for table `login_logs`
 --
 ALTER TABLE `login_logs`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `password_types`
 --

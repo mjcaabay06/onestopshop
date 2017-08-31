@@ -7,6 +7,7 @@
     //     header("Location: sign-in.php");
     //     exit;
     // }
+    $id = $_SESSION['authId']
 ?>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
@@ -95,7 +96,6 @@
                                     <div class="head"><h2>Request Booking</h2></div>
                                     <form>
                                         <?php
-                                            $id = 26;
                                             $selBooking = "select *, bookings.id as booking_id from bookings inner join (clients inner join client_infos on client_infos.client_id = clients.id) on clients.id = bookings.customer_id inner join (client_events inner join event_types on event_types.id = client_events.event_type_id) on client_events.id = bookings.client_event_id where bookings.approval_type_id = 3 and client_events.client_id = " . $id . " order by bookings.created_at";
                                             $rsBooking = mysqli_query($mysqli, $selBooking);
                                             $cntBooking = mysqli_num_rows($rsBooking);

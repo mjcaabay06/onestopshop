@@ -79,13 +79,17 @@
 
                         if (result['status'] == 'success') {
                             $("#alert-message").html('<div class="alert alert-success">' + result['message'] + '</div>');
+                            
                             setTimeout(function(){
                                 <?php
                                     if (!empty($_SESSION["tempBookingId"])):
                                 ?>
                                     window.location.href = 'booking-submit.php?eid=<?php echo $_SESSION['eid'] ?>';
                                 <?php else: ?>
-                                    window.location.href = 'index.php';
+                                    if (result['type'] == 2) {
+                                        window.location.href = 'org-dashboard.php';
+                                    }
+                                    
                                 <?php endif; ?>
                                 
                             },1500);
